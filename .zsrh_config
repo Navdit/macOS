@@ -5,19 +5,40 @@
 export ZSH="/Users/navdsharma/.oh-my-zsh"
 
 # Powerlevel9k Config Settings
-POWERLEVEL9K_DISABLE_RPROMPT=true
+# POWERLEVEL9K_DISABLE_RPROMPT=true
 POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_CUSTOM_PYTHON="echo -n '\uf81f' Python"
-POWERLEVEL9K_CUSTOM_PYTHON_FOREGROUND="black"
-POWERLEVEL9K_CUSTOM_PYTHON_BACKGROUND="blue"
-POWERLEVEL9K_CUSTOM_RUBY="echo -n '\ue21e' Ruby"
-POWERLEVEL9K_CUSTOM_RUBY_FOREGROUND="black"
-POWERLEVEL9K_CUSTOM_RUBY_BACKGROUND="red"
-POWERLEVEL9K_CUSTOM_JAVASCRIPT="echo -n '\ue781' JavaScript"
-POWERLEVEL9K_CUSTOM_JAVASCRIPT_FOREGROUND="black"
-POWERLEVEL9K_CUSTOM_JAVASCRIPT_BACKGROUND="yellow"
+# POWERLEVEL9K_CUSTOM_PYTHON="echo -n '\uf81f' Python"
+# POWERLEVEL9K_CUSTOM_PYTHON_FOREGROUND="black"
+# POWERLEVEL9K_CUSTOM_PYTHON_BACKGROUND="blue"
+# POWERLEVEL9K_CUSTOM_RUBY="echo -n '\ue21e' Ruby"
+# POWERLEVEL9K_CUSTOM_RUBY_FOREGROUND="black"
+# POWERLEVEL9K_CUSTOM_RUBY_BACKGROUND="red"
+# POWERLEVEL9K_CUSTOM_JAVASCRIPT="echo -n '\ue781' JavaScript"
+# POWERLEVEL9K_CUSTOM_JAVASCRIPT_FOREGROUND="black"
+# POWERLEVEL9K_CUSTOM_JAVASCRIPT_BACKGROUND="yellow"
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=’red’
+
+# Add a space in the first prompt
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
+# Visual customisation of the second prompt line
+local user_symbol="$"
+if [[ $(print -P "%#") =~ "#" ]]; then
+    user_symbol = "#"
+fi
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
+
+# Highlighting Syntax
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Colorise the top Tabs of Iterm2 with the same color as background
+# Just change the 18/26/33 wich are the rgb values
+echo -e "\033]6;1;bg;red;brightness;18\a"
+echo -e "\033]6;1;bg;green;brightness;26\a"
+echo -e "\033]6;1;bg;blue;brightness;33\a"
 
 # Load Zsh tools for syntax highlighting and autosuggestions
 # HOMEBREW_FOLDER="/usr/local/share"
@@ -83,7 +104,10 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+			git
+			zsh-autosuggestions
+		)
 
 source $ZSH/oh-my-zsh.sh
 
