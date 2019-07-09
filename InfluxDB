@@ -1,0 +1,44 @@
+1. Execute below commands to download InfluxDB
+    brew update
+    brew install influxdb
+
+2. Run below commands after successful installation of InfluxDB
+    ln -sfv /usr/local/opt/influxdb/*.plist ~/Library/LaunchAgents
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.influxdb.plist
+
+3. To Verify that InfluxDB is running or not, Execute below commands in terminal
+    Influx
+    SHOW DATABASES
+    Create database jmeter
+    
+ 4. Edit Config File
+    micro /usr/local/etc/influxdb.conf
+    
+ 5. In this configuration file you need to find, uncomment and edit the ‘[[graphite]]’ category appropriately:
+   [[graphite]]
+    # Determines whether the graphite endpoint is enabled.
+    enabled = true
+    database = "jmeter"
+    retention-policy = ""
+    bind-address = ":2003"
+    protocol = "tcp"
+    consistency-level = "one"
+    batch-size = 5000
+    batch-pending = 10
+    batch-timeout = "1s"
+    udp-read-buffer = 0
+    separator = "."
+    
+ 6. Stopping Influx DB
+    * install brew services by tapping homebrew/services
+    brew tap homebrew/services
+    
+    * the list of services includes services you started with launchctl load, not just services you loaded with brew services
+    brew list services
+    
+    * Stop InfluxDB
+    brew services stop influxdb
+    
+ 7. Restart InfluxDB
+    influxd -config /usr/local/etc/influxdb.conf
+    
