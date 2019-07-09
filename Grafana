@@ -1,0 +1,7 @@
+1. Install
+    brew install grafana
+    
+2. Start Grafana
+    brew services start grafana
+    
+3. 
