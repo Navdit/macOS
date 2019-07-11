@@ -44,3 +44,10 @@
     
 
 Helpful Link - https://www.blazemeter.com/blog/how-to-use-grafana-to-monitor-jmeter-non-gui-results/
+
+Helful Commands
+1. Get the PID of the process running on 8088 port 
+lsof -i:8088
+
+2. Kill the process
+kill -9 45678
