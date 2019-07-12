@@ -7,6 +7,7 @@ brew install collectd
 3. Run with Admin else CPU stats wont get collected
  sudo brew services start collectd
  
+ Working config file -  https://github.com/Navdit/macOS/blob/master/collectd_config
  
  Helpful Link
  http://www.testautomationguru.com/jmeter-server-performance-monitoring-with-collectd-influxdb-grafana/
