@@ -1,0 +1,13 @@
+1. Install
+brew install collectd
+
+2. Config file location
+ /usr/local/etc/collectd.conf
+ 
+ 3. 
+ 
+ 
+ Helpful Link
+ http://www.testautomationguru.com/jmeter-server-performance-monitoring-with-collectd-influxdb-grafana/
+ 
+ 
