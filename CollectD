@@ -14,5 +14,6 @@ tail -f /usr/local/var/log/collectd.log
  
  Helpful Link
  http://www.testautomationguru.com/jmeter-server-performance-monitoring-with-collectd-influxdb-grafana/
+ https://notes.ayushsharma.in/2017/08/setting-up-collectd-and-influxdb-on-mac-os-x
  
  
