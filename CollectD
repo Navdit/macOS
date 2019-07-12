@@ -4,7 +4,8 @@ brew install collectd
 2. Config file location
  /usr/local/etc/collectd.conf
  
- 3. 
+3. Run with Admin else CPU stats wont get collected
+ sudo brew services start collectd
  
  
  Helpful Link
