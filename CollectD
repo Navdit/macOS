@@ -5,7 +5,7 @@ brew install collectd
  /usr/local/etc/collectd.conf
  
 3. Run with Admin else CPU stats wont get collected
- sudo brew services start collectd
+ sudo brew services restart collectd
  
 4. Log
 tail -f /usr/local/var/log/collectd.log
