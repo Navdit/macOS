@@ -4,4 +4,5 @@
 2. Start Grafana
     brew services start grafana
     
-3. 
+3. Grafana Installed Dir
+/usr/local/Cellar/grafana
