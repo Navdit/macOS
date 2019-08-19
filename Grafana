@@ -6,3 +6,7 @@
     
 3. Grafana Installed Dir
 /usr/local/Cellar/grafana
+
+
+4. Generating API Token
+curl -X POST -H "Content-Type: application/json" -d '{"name":"apikeycurl", "role": "Admin"}' http://admin:qwerty@localhost:3000/api/auth/keys
