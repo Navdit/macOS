@@ -4,9 +4,50 @@
 2. Start Grafana
     brew services start grafana
     
+Choose password as qwerty or something without special characters as its easier to generate API token.    
+    
 3. Grafana Installed Dir
 /usr/local/Cellar/grafana
 
 
-4. Generating API Token
+-- How to Generate Report from Grafana
+1. Install BasicTex - http://tug.org/cgi-bin/mactex-download/BasicTeX.pkg
+
+2. Install Go for macOs- https://golang.org/dl/ 
+
+3. Generating API Token from Grafana (Username - admin, Password - qwerty)
 curl -X POST -H "Content-Type: application/json" -d '{"name":"apikeycurl", "role": "Admin"}' http://admin:qwerty@localhost:3000/api/auth/keys
+
+4. Install Grafana Reporter
+go get github.com/IzakMarais/reporter/...
+go install -v github.com/IzakMarais/reporter/cmd/grafana-reporter
+
+5. Go to the dashboard on which you would like to generate report
+dashboardUID will be something like oEH4lHvZz, which can be found in the url of the dashboard itself
+Settings --> Links
+Type: Link, we marked such.
+Url: http://localhost:8686/api/v5/report/{dashboardUID}?apitoken={generatedInStep3}
+eg - http://localhost:8686/api/v5/report/oEH4lHvZz?apitoken=eyJrIjoieU5TZ21pNDhTT3gxZGswN0FTaFQ3bjVQcFFQUm8wZFIiLCJuIjoiYXBpa2V5Y3VybCIsImlkIjoxfQ==
+Title: Generate PDF
+Tooltip: Generate a PDF of this Dashboard
+Icon: doc, to be an icon of a document.
+Time range: I put mark to allow periods of time.
+Variable values: Mark it to play with dates.
+Open in new tab: We mark if we want the PDF generates it in a new tab.
+
+6. Starting Grafana Reporter
+cd /Users/navdsharma/go/bin
+./grafana-reporter
+
+for help on commands - ./grafana-reporter --help
+
+If you close terminal - it will close grafana reporter
+Handy commands
+ps -ef | grep grafana-reporter
+kill -9 12345
+
+Useful links
+https://www.bujarra.com/generando-informes-con-grafana-y-programar-su-envio/?lang=en
+https://github.com/IzakMarais/reporter
+
+
