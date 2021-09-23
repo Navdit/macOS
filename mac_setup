@@ -1,9 +1,45 @@
 Install Brave, Chrome Browsers
 
 Install xCode from AppStore. beware its of 12GB. You can try installing CLT xcode-select --install, developer.apple.com/downloads or Xcode 3 as mentioned in Brew Installation Page
+xcode-select —-install works
 
 Install Brew - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)". Source - https://brew.sh/
 
-brew install zsh
+Install iTerm
+brew install iterm2
+
+Download Font for iterm2
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+
+Change to Font - navigate to iTerm2 > Preferences > Profiles > Text > Change Font
+Inconsolata for powerline
+screenshot - https://cdn-media-1.freecodecamp.org/images/flJ1CL1uDv0QoX-TK0MBgn7CVuyG0wOG388V
+
+Install Color Theme in iTerm2
+iTerm2 > Preferences > Profile > Colors > Color Presets > Import
+source - https://github.com/Navdit/macOS/blob/master/iTerm2_Colors_Config.itermcolors
 
 brew install micro
+
+brew install zsh
+
+zsh theme
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+zsh plugins
+docker
+git clone https://github.com/zsh-users/zsh-docker.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-docker
+
+zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+zsh auto-suggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+copy zsh config file - https://github.com/Navdit/macOS/blob/master/.zsrh_config
+micro ~/.zshrc
+
+
+
