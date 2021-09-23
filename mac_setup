@@ -1,0 +1,9 @@
+Install Brave, Chrome Browsers
+
+Install xCode from AppStore. beware its of 12GB. You can try installing CLT xcode-select --install, developer.apple.com/downloads or Xcode 3 as mentioned in Brew Installation Page
+
+Install Brew - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)". Source - https://brew.sh/
+
+brew install zsh
+
+brew install micro
